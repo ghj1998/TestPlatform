@@ -7,8 +7,8 @@
 <!--    扫描service下的包-->
     <context:component-scan base-package="com.gao.service"/>
 <!--    将所有的业务类注入到Spring，可以通过配置，或者注解实现-->
-    <bean id="BookServiceImpl" class="com.gao.service.BookServiceImpl">
-        <property name="bookMapper" ref="bookMapper"/>
+    <bean id="TestInputService" class="com.gao.service.TestInputServiceImpl">
+        <property name="testInputMapper" ref="testInputMapper"/>
     </bean>
 
 <!--    声明式事务配置-->
