@@ -10,7 +10,10 @@ import lombok.NoArgsConstructor;
 public class TestInput {
     private int id;
     private String name;
+    private String inputFileName;
     private String input;
+    private String outputFileName;
     private String output;
     private double permissibleError;
+    private String runCommand;
 }

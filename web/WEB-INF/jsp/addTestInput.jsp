@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>增加算例</title>
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -21,7 +21,7 @@
                 </h1>
             </div>
         </div>
-        <form action="${pageContext.request.contextPath}/addTestInput" method="post">
+        <form action="${pageContext.request.contextPath}/addTestInput" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label>测试名称</label>
                 <input type="text" name="name" class="form-control">
@@ -37,6 +37,13 @@
             <div class="form-group">
                 <label>允许误差</label>
                 <input type="text" name="permissibleError" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>运行选项（不填默认使用mpi并行，4核心，8线程）,取消勾选则是单核/单线程</label>
+                <br>
+                <input type="checkbox" name="run" value="plot"><label>仅画图</label>
+                <input type="checkbox" name="run" value="mpi" checked="checked"><label>核数</label><input type="text" name="mpi" value="4" size="1">
+                <input type="checkbox" name="run" value="omp" checked="checked"><label>线程数</label><input type="text" name="omp" value="8" size="1">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
         </form>

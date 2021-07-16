@@ -5,30 +5,30 @@
 <mapper namespace="com.gao.dao.TestInputMapper">
     <insert id="addTestInput" parameterType="TestInput">
         insert
-        into testrepo.test_input (name, input,output,permissibleError)
-        VALUES (#{name},#{input},#{output},#{permissibleError})
+        into cases.cases (name, inputFileName,input,outputFileName,output,permissibleError,runCommand)
+        VALUES (#{name}, #{inputFileName},#{input},#{outputFileName},#{output},#{permissibleError},#{runCommand})
     </insert>
 
     <delete id="deleteTestInput" parameterType="_int">
-        delete from testrepo.test_input where id=#{id}
+        delete from cases.cases where id=#{id}
     </delete>
 
     <update id="updateTestInput" parameterType="TestInput">
-        update testrepo.test_input
-            set name = #{name},input=#{input},output=#{output},permissibleError=#{permissibleError}
+        update cases.cases
+            set name = #{name},inputFileName=#{inputFileName},input=#{input},outputFileName=#{outputFileName},output=#{output},permissibleError=#{permissibleError},runCommand=#{runCommand}
         where id=#{id};
     </update>
 
     <select id="queryAllTestInput" resultType="TestInput">
-        select * from testrepo.test_input
+        select * from cases.cases
     </select>
 
     <select id="queryTestInputByName" resultType="TestInput">
-        select * from testrepo.test_input where name like #{name}
+        select * from cases.cases where name like #{name}
     </select>
 
 
     <select id="queryTestInputByID" resultType="TestInput" parameterType="_int">
-        select * from testrepo.test_input where id=#{id}
+        select * from cases.cases where id=#{id}
     </select>
 </mapper>
